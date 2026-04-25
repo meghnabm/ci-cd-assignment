@@ -36,6 +36,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/ci-cd-assignment
+            export GITHUB_SHA=${{ github.sha }}
             docker-compose down
             docker-compose pull
             docker-compose up -d
